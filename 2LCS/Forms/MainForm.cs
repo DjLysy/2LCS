@@ -22,6 +22,7 @@ using static LCS.NativeMethods;
 using System.Globalization;
 using LCS.AssetLibrary;
 using AutoMapper;
+using LCS.Properties;
 
 namespace LCS.Forms
 {
@@ -272,10 +273,10 @@ namespace LCS.Forms
                         var rdcProcess = new Process
                         {
                             StartInfo =
-                        {
-                            FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe"),
-                            Arguments = "/v " + $"{rdpEntry.Address}:{rdpEntry.Port}"
-                        }
+                            {
+                                FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe"),
+                                Arguments = (Settings.Default.rdpFullScreenEnabled ? "/f " : "") + "/v " + $"{rdpEntry.Address}:{rdpEntry.Port}"
+                            }
                         };
                         rdcProcess.Start();
                     }
@@ -1714,10 +1715,10 @@ namespace LCS.Forms
                         var rdcProcess = new Process
                         {
                             StartInfo =
-                        {
-                            FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe"),
-                            Arguments = "/v " + $"{rdpEntry.Address}:{rdpEntry.Port}"
-                        }
+                            {
+                                FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe"),
+                                Arguments = (Settings.Default.rdpFullScreenEnabled ? "/f " : "") + "/v " + $"{rdpEntry.Address}:{rdpEntry.Port}"
+                            }
                         };
                         rdcProcess.Start();
                     }
@@ -2093,7 +2094,7 @@ namespace LCS.Forms
                             StartInfo =
                             {
                                 FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe"),
-                                Arguments = "/v " + $"{rdpEntry.Address}:{rdpEntry.Port}"
+                                Arguments = (Settings.Default.rdpFullScreenEnabled ? "/f " : "") + "/v " + $"{rdpEntry.Address}:{rdpEntry.Port}"
                             }
                         };
                         rdcProcess.Start();

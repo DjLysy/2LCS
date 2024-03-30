@@ -43,6 +43,7 @@ namespace LCS.Forms
             StoreCacheCheckBox.Checked = Properties.Settings.Default.keepCache;
             alwaysLogAsAdmin.Checked = Properties.Settings.Default.alwaysLogAsAdmin;
             uriSchemeEnabled.Checked = Properties.Settings.Default.uriSchemeEnabled;
+            rdpFullScreenEnabled.Checked = Properties.Settings.Default.rdpFullScreenEnabled;
             textBoxLcsUrl.Text = Properties.Settings.Default.lcsURL;
             textBoxLcsUpdateUrl.Text = Properties.Settings.Default.lcsUpdateURL;
             textBoxLcsDiagUrl.Text = Properties.Settings.Default.lcsDiagURL;
@@ -61,6 +62,7 @@ namespace LCS.Forms
             Properties.Settings.Default.keepCache = StoreCacheCheckBox.Checked;
             Properties.Settings.Default.alwaysLogAsAdmin = alwaysLogAsAdmin.Checked;
             Properties.Settings.Default.uriSchemeEnabled = uriSchemeEnabled.Checked;
+            Properties.Settings.Default.rdpFullScreenEnabled = rdpFullScreenEnabled.Checked;
             Properties.Settings.Default.lcsURL = textBoxLcsUrl.Text;
             Properties.Settings.Default.lcsUpdateURL = textBoxLcsUpdateUrl.Text;
             Properties.Settings.Default.lcsDiagURL = textBoxLcsDiagUrl.Text;

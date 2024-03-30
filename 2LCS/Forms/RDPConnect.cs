@@ -1,4 +1,5 @@
 ﻿using LCS.JsonObjects;
+using LCS.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -150,10 +151,10 @@ namespace LCS.Forms
                                     var rdcProcess = new Process
                                     {
                                         StartInfo =
-                                    {
-                                        FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe"),
-                                        Arguments = "/v " + $"{rdpEntry.Address}:{rdpEntry.Port}"
-                                    }
+                                        {
+                                            FileName = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\system32\mstsc.exe"),
+                                            Arguments = (Settings.Default.rdpFullScreenEnabled ? "/f " : "") + "/v " + $"{rdpEntry.Address}:{rdpEntry.Port}"
+                                        }
                                     };
 
                                     worker.ReportProgress(95, "Starting connection..");

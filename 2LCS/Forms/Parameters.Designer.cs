@@ -46,14 +46,15 @@
             LocalCredentialsCheckbox = new System.Windows.Forms.CheckBox();
             RDPCredentialsCheckbox = new System.Windows.Forms.CheckBox();
             groupBoxLCSUrls = new System.Windows.Forms.GroupBox();
+            labelLcsDiagUrl = new System.Windows.Forms.Label();
+            labelLcsFixUrl = new System.Windows.Forms.Label();
+            labelLcsUpdateUrl = new System.Windows.Forms.Label();
             labelLcsUrl = new System.Windows.Forms.Label();
             textBoxLcsDiagUrl = new System.Windows.Forms.TextBox();
             textBoxLcsFixUrl = new System.Windows.Forms.TextBox();
             textBoxLcsUpdateUrl = new System.Windows.Forms.TextBox();
             textBoxLcsUrl = new System.Windows.Forms.TextBox();
-            labelLcsUpdateUrl = new System.Windows.Forms.Label();
-            labelLcsFixUrl = new System.Windows.Forms.Label();
-            labelLcsDiagUrl = new System.Windows.Forms.Label();
+            rdpFullScreenEnabled = new System.Windows.Forms.CheckBox();
             groupBoxExportConfig.SuspendLayout();
             groupBoxUIConfig.SuspendLayout();
             groupBoxCaching.SuspendLayout();
@@ -65,9 +66,10 @@
             // AutoRefreshCheckBox
             // 
             AutoRefreshCheckBox.AutoSize = true;
-            AutoRefreshCheckBox.Location = new System.Drawing.Point(8, 25);
+            AutoRefreshCheckBox.Location = new System.Drawing.Point(7, 19);
+            AutoRefreshCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             AutoRefreshCheckBox.Name = "AutoRefreshCheckBox";
-            AutoRefreshCheckBox.Size = new System.Drawing.Size(371, 24);
+            AutoRefreshCheckBox.Size = new System.Drawing.Size(298, 19);
             AutoRefreshCheckBox.TabIndex = 0;
             AutoRefreshCheckBox.Text = "Auto-refresh list of instances after switching project";
             AutoRefreshCheckBox.UseVisualStyleBackColor = true;
@@ -75,9 +77,10 @@
             // closeButton
             // 
             closeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            closeButton.Location = new System.Drawing.Point(312, 722);
+            closeButton.Location = new System.Drawing.Point(273, 565);
+            closeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             closeButton.Name = "closeButton";
-            closeButton.Size = new System.Drawing.Size(163, 32);
+            closeButton.Size = new System.Drawing.Size(143, 24);
             closeButton.TabIndex = 4;
             closeButton.Text = "Close";
             closeButton.UseVisualStyleBackColor = true;
@@ -87,35 +90,40 @@
             // 
             groupBoxExportConfig.Controls.Add(labelOrgNameExcl);
             groupBoxExportConfig.Controls.Add(textBoxProjectExcl);
-            groupBoxExportConfig.Location = new System.Drawing.Point(12, 223);
+            groupBoxExportConfig.Location = new System.Drawing.Point(10, 167);
+            groupBoxExportConfig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             groupBoxExportConfig.Name = "groupBoxExportConfig";
-            groupBoxExportConfig.Size = new System.Drawing.Size(463, 91);
+            groupBoxExportConfig.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            groupBoxExportConfig.Size = new System.Drawing.Size(405, 68);
             groupBoxExportConfig.TabIndex = 5;
             groupBoxExportConfig.TabStop = false;
             groupBoxExportConfig.Text = "Export instances/updates";
             // 
             // labelOrgNameExcl
             // 
-            labelOrgNameExcl.Location = new System.Drawing.Point(4, 31);
+            labelOrgNameExcl.Location = new System.Drawing.Point(4, 23);
             labelOrgNameExcl.Name = "labelOrgNameExcl";
-            labelOrgNameExcl.Size = new System.Drawing.Size(241, 43);
+            labelOrgNameExcl.Size = new System.Drawing.Size(211, 32);
             labelOrgNameExcl.TabIndex = 1;
             labelOrgNameExcl.Text = "Exclude projects for all organizations containing the following string\r\n\r\n";
             // 
             // textBoxProjectExcl
             // 
-            textBoxProjectExcl.Location = new System.Drawing.Point(251, 38);
+            textBoxProjectExcl.Location = new System.Drawing.Point(220, 28);
+            textBoxProjectExcl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             textBoxProjectExcl.Name = "textBoxProjectExcl";
-            textBoxProjectExcl.Size = new System.Drawing.Size(209, 27);
+            textBoxProjectExcl.Size = new System.Drawing.Size(183, 23);
             textBoxProjectExcl.TabIndex = 0;
             // 
             // groupBoxUIConfig
             // 
             groupBoxUIConfig.Controls.Add(minimizeToNotificationArea);
             groupBoxUIConfig.Controls.Add(AutoRefreshCheckBox);
-            groupBoxUIConfig.Location = new System.Drawing.Point(12, 11);
+            groupBoxUIConfig.Location = new System.Drawing.Point(10, 8);
+            groupBoxUIConfig.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             groupBoxUIConfig.Name = "groupBoxUIConfig";
-            groupBoxUIConfig.Size = new System.Drawing.Size(463, 102);
+            groupBoxUIConfig.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            groupBoxUIConfig.Size = new System.Drawing.Size(405, 76);
             groupBoxUIConfig.TabIndex = 6;
             groupBoxUIConfig.TabStop = false;
             groupBoxUIConfig.Text = "UI";
@@ -123,10 +131,10 @@
             // minimizeToNotificationArea
             // 
             minimizeToNotificationArea.AutoSize = true;
-            minimizeToNotificationArea.Location = new System.Drawing.Point(8, 57);
-            minimizeToNotificationArea.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            minimizeToNotificationArea.Location = new System.Drawing.Point(7, 43);
+            minimizeToNotificationArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             minimizeToNotificationArea.Name = "minimizeToNotificationArea";
-            minimizeToNotificationArea.Size = new System.Drawing.Size(363, 24);
+            minimizeToNotificationArea.Size = new System.Drawing.Size(291, 19);
             minimizeToNotificationArea.TabIndex = 2;
             minimizeToNotificationArea.Text = "Closing the window minimizes to notification area";
             minimizeToNotificationArea.UseVisualStyleBackColor = true;
@@ -136,19 +144,21 @@
             groupBoxCaching.Controls.Add(ClearCacheButton);
             groupBoxCaching.Controls.Add(StoreCacheCheckBox);
             groupBoxCaching.Controls.Add(CachingEnabledCheckbox);
-            groupBoxCaching.Location = new System.Drawing.Point(12, 118);
+            groupBoxCaching.Location = new System.Drawing.Point(10, 88);
+            groupBoxCaching.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             groupBoxCaching.Name = "groupBoxCaching";
-            groupBoxCaching.Size = new System.Drawing.Size(463, 98);
+            groupBoxCaching.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            groupBoxCaching.Size = new System.Drawing.Size(405, 74);
             groupBoxCaching.TabIndex = 7;
             groupBoxCaching.TabStop = false;
             groupBoxCaching.Text = "Caching";
             // 
             // ClearCacheButton
             // 
-            ClearCacheButton.Location = new System.Drawing.Point(315, 49);
-            ClearCacheButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            ClearCacheButton.Location = new System.Drawing.Point(276, 37);
+            ClearCacheButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             ClearCacheButton.Name = "ClearCacheButton";
-            ClearCacheButton.Size = new System.Drawing.Size(141, 35);
+            ClearCacheButton.Size = new System.Drawing.Size(123, 26);
             ClearCacheButton.TabIndex = 2;
             ClearCacheButton.Text = "Clear cache";
             ClearCacheButton.UseVisualStyleBackColor = true;
@@ -157,9 +167,10 @@
             // StoreCacheCheckBox
             // 
             StoreCacheCheckBox.AutoSize = true;
-            StoreCacheCheckBox.Location = new System.Drawing.Point(8, 57);
+            StoreCacheCheckBox.Location = new System.Drawing.Point(7, 43);
+            StoreCacheCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             StoreCacheCheckBox.Name = "StoreCacheCheckBox";
-            StoreCacheCheckBox.Size = new System.Drawing.Size(287, 24);
+            StoreCacheCheckBox.Size = new System.Drawing.Size(229, 19);
             StoreCacheCheckBox.TabIndex = 1;
             StoreCacheCheckBox.Text = "Save cache on exit and load on startup";
             StoreCacheCheckBox.UseVisualStyleBackColor = true;
@@ -167,9 +178,10 @@
             // CachingEnabledCheckbox
             // 
             CachingEnabledCheckbox.AutoSize = true;
-            CachingEnabledCheckbox.Location = new System.Drawing.Point(8, 25);
+            CachingEnabledCheckbox.Location = new System.Drawing.Point(7, 19);
+            CachingEnabledCheckbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             CachingEnabledCheckbox.Name = "CachingEnabledCheckbox";
-            CachingEnabledCheckbox.Size = new System.Drawing.Size(154, 24);
+            CachingEnabledCheckbox.Size = new System.Drawing.Size(124, 19);
             CachingEnabledCheckbox.TabIndex = 0;
             CachingEnabledCheckbox.Text = "Enabled (memory)";
             CachingEnabledCheckbox.UseVisualStyleBackColor = true;
@@ -177,31 +189,34 @@
             // 
             // groupCHE
             // 
+            groupCHE.Controls.Add(rdpFullScreenEnabled);
             groupCHE.Controls.Add(uriSchemeEnabled);
             groupCHE.Controls.Add(alwaysLogAsAdmin);
-            groupCHE.Location = new System.Drawing.Point(11, 432);
-            groupCHE.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            groupCHE.Location = new System.Drawing.Point(10, 324);
+            groupCHE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             groupCHE.Name = "groupCHE";
-            groupCHE.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            groupCHE.Size = new System.Drawing.Size(461, 108);
+            groupCHE.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            groupCHE.Size = new System.Drawing.Size(403, 104);
             groupCHE.TabIndex = 9;
             groupCHE.TabStop = false;
             groupCHE.Text = "Cloud-hosted environments";
             // 
             // uriSchemeEnabled
             // 
-            uriSchemeEnabled.Location = new System.Drawing.Point(8, 65);
+            uriSchemeEnabled.Location = new System.Drawing.Point(7, 49);
+            uriSchemeEnabled.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             uriSchemeEnabled.Name = "uriSchemeEnabled";
-            uriSchemeEnabled.Size = new System.Drawing.Size(225, 31);
+            uriSchemeEnabled.Size = new System.Drawing.Size(197, 23);
             uriSchemeEnabled.TabIndex = 1;
             uriSchemeEnabled.Text = "Enable URI scheme support";
             uriSchemeEnabled.CheckedChanged += OnUriSchemeEnabledCheckedChanged;
             // 
             // alwaysLogAsAdmin
             // 
-            alwaysLogAsAdmin.Location = new System.Drawing.Point(8, 28);
+            alwaysLogAsAdmin.Location = new System.Drawing.Point(7, 21);
+            alwaysLogAsAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             alwaysLogAsAdmin.Name = "alwaysLogAsAdmin";
-            alwaysLogAsAdmin.Size = new System.Drawing.Size(204, 31);
+            alwaysLogAsAdmin.Size = new System.Drawing.Size(178, 23);
             alwaysLogAsAdmin.TabIndex = 0;
             alwaysLogAsAdmin.Text = "Always log as admin user";
             // 
@@ -209,26 +224,30 @@
             // 
             groupBoxCredentials.Controls.Add(LocalCredentialsCheckbox);
             groupBoxCredentials.Controls.Add(RDPCredentialsCheckbox);
-            groupBoxCredentials.Location = new System.Drawing.Point(11, 320);
+            groupBoxCredentials.Location = new System.Drawing.Point(10, 240);
+            groupBoxCredentials.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             groupBoxCredentials.Name = "groupBoxCredentials";
-            groupBoxCredentials.Size = new System.Drawing.Size(463, 105);
+            groupBoxCredentials.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            groupBoxCredentials.Size = new System.Drawing.Size(405, 79);
             groupBoxCredentials.TabIndex = 6;
             groupBoxCredentials.TabStop = false;
             groupBoxCredentials.Text = "Export project data";
             // 
             // LocalCredentialsCheckbox
             // 
-            LocalCredentialsCheckbox.Location = new System.Drawing.Point(8, 63);
+            LocalCredentialsCheckbox.Location = new System.Drawing.Point(7, 47);
+            LocalCredentialsCheckbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             LocalCredentialsCheckbox.Name = "LocalCredentialsCheckbox";
-            LocalCredentialsCheckbox.Size = new System.Drawing.Size(204, 31);
+            LocalCredentialsCheckbox.Size = new System.Drawing.Size(178, 23);
             LocalCredentialsCheckbox.TabIndex = 2;
             LocalCredentialsCheckbox.Text = "Include local credentials";
             // 
             // RDPCredentialsCheckbox
             // 
-            RDPCredentialsCheckbox.Location = new System.Drawing.Point(8, 26);
+            RDPCredentialsCheckbox.Location = new System.Drawing.Point(7, 20);
+            RDPCredentialsCheckbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             RDPCredentialsCheckbox.Name = "RDPCredentialsCheckbox";
-            RDPCredentialsCheckbox.Size = new System.Drawing.Size(204, 31);
+            RDPCredentialsCheckbox.Size = new System.Drawing.Size(178, 23);
             RDPCredentialsCheckbox.TabIndex = 1;
             RDPCredentialsCheckbox.Text = "Include RDP credentials";
             // 
@@ -242,82 +261,97 @@
             groupBoxLCSUrls.Controls.Add(textBoxLcsFixUrl);
             groupBoxLCSUrls.Controls.Add(textBoxLcsUpdateUrl);
             groupBoxLCSUrls.Controls.Add(textBoxLcsUrl);
-            groupBoxLCSUrls.Location = new System.Drawing.Point(11, 548);
+            groupBoxLCSUrls.Location = new System.Drawing.Point(10, 434);
+            groupBoxLCSUrls.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             groupBoxLCSUrls.Name = "groupBoxLCSUrls";
-            groupBoxLCSUrls.Size = new System.Drawing.Size(461, 165);
+            groupBoxLCSUrls.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            groupBoxLCSUrls.Size = new System.Drawing.Size(403, 124);
             groupBoxLCSUrls.TabIndex = 10;
             groupBoxLCSUrls.TabStop = false;
             groupBoxLCSUrls.Text = "LCS Urls";
             // 
+            // labelLcsDiagUrl
+            // 
+            labelLcsDiagUrl.AutoSize = true;
+            labelLcsDiagUrl.Location = new System.Drawing.Point(8, 99);
+            labelLcsDiagUrl.Name = "labelLcsDiagUrl";
+            labelLcsDiagUrl.Size = new System.Drawing.Size(104, 15);
+            labelLcsDiagUrl.TabIndex = 7;
+            labelLcsDiagUrl.Text = "LCS Diagnostic Url";
+            // 
+            // labelLcsFixUrl
+            // 
+            labelLcsFixUrl.AutoSize = true;
+            labelLcsFixUrl.Location = new System.Drawing.Point(8, 74);
+            labelLcsFixUrl.Name = "labelLcsFixUrl";
+            labelLcsFixUrl.Size = new System.Drawing.Size(112, 15);
+            labelLcsFixUrl.TabIndex = 6;
+            labelLcsFixUrl.Text = "LCS Issue Search Url";
+            // 
+            // labelLcsUpdateUrl
+            // 
+            labelLcsUpdateUrl.AutoSize = true;
+            labelLcsUpdateUrl.Location = new System.Drawing.Point(8, 50);
+            labelLcsUpdateUrl.Name = "labelLcsUpdateUrl";
+            labelLcsUpdateUrl.Size = new System.Drawing.Size(86, 15);
+            labelLcsUpdateUrl.TabIndex = 5;
+            labelLcsUpdateUrl.Text = "LCS Update Url";
+            // 
             // labelLcsUrl
             // 
             labelLcsUrl.AutoSize = true;
-            labelLcsUrl.Location = new System.Drawing.Point(9, 33);
+            labelLcsUrl.Location = new System.Drawing.Point(8, 25);
             labelLcsUrl.Name = "labelLcsUrl";
-            labelLcsUrl.Size = new System.Drawing.Size(55, 20);
+            labelLcsUrl.Size = new System.Drawing.Size(45, 15);
             labelLcsUrl.TabIndex = 4;
             labelLcsUrl.Text = "LCS Url";
             // 
             // textBoxLcsDiagUrl
             // 
-            textBoxLcsDiagUrl.Location = new System.Drawing.Point(252, 125);
+            textBoxLcsDiagUrl.Location = new System.Drawing.Point(220, 94);
+            textBoxLcsDiagUrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             textBoxLcsDiagUrl.Name = "textBoxLcsDiagUrl";
-            textBoxLcsDiagUrl.Size = new System.Drawing.Size(203, 27);
+            textBoxLcsDiagUrl.Size = new System.Drawing.Size(178, 23);
             textBoxLcsDiagUrl.TabIndex = 3;
             // 
             // textBoxLcsFixUrl
             // 
-            textBoxLcsFixUrl.Location = new System.Drawing.Point(252, 92);
+            textBoxLcsFixUrl.Location = new System.Drawing.Point(220, 69);
+            textBoxLcsFixUrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             textBoxLcsFixUrl.Name = "textBoxLcsFixUrl";
-            textBoxLcsFixUrl.Size = new System.Drawing.Size(203, 27);
+            textBoxLcsFixUrl.Size = new System.Drawing.Size(178, 23);
             textBoxLcsFixUrl.TabIndex = 2;
             // 
             // textBoxLcsUpdateUrl
             // 
-            textBoxLcsUpdateUrl.Location = new System.Drawing.Point(252, 59);
+            textBoxLcsUpdateUrl.Location = new System.Drawing.Point(220, 44);
+            textBoxLcsUpdateUrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             textBoxLcsUpdateUrl.Name = "textBoxLcsUpdateUrl";
-            textBoxLcsUpdateUrl.Size = new System.Drawing.Size(203, 27);
+            textBoxLcsUpdateUrl.Size = new System.Drawing.Size(178, 23);
             textBoxLcsUpdateUrl.TabIndex = 1;
             // 
             // textBoxLcsUrl
             // 
-            textBoxLcsUrl.Location = new System.Drawing.Point(252, 26);
+            textBoxLcsUrl.Location = new System.Drawing.Point(220, 20);
+            textBoxLcsUrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             textBoxLcsUrl.Name = "textBoxLcsUrl";
-            textBoxLcsUrl.Size = new System.Drawing.Size(203, 27);
+            textBoxLcsUrl.Size = new System.Drawing.Size(178, 23);
             textBoxLcsUrl.TabIndex = 0;
             // 
-            // labelLcsUpdateUrl
+            // rdpFullScreenEnabled
             // 
-            labelLcsUpdateUrl.AutoSize = true;
-            labelLcsUpdateUrl.Location = new System.Drawing.Point(9, 66);
-            labelLcsUpdateUrl.Name = "labelLcsUpdateUrl";
-            labelLcsUpdateUrl.Size = new System.Drawing.Size(108, 20);
-            labelLcsUpdateUrl.TabIndex = 5;
-            labelLcsUpdateUrl.Text = "LCS Update Url";
-            // 
-            // labelLcsFixUrl
-            // 
-            labelLcsFixUrl.AutoSize = true;
-            labelLcsFixUrl.Location = new System.Drawing.Point(9, 99);
-            labelLcsFixUrl.Name = "labelLcsFixUrl";
-            labelLcsFixUrl.Size = new System.Drawing.Size(139, 20);
-            labelLcsFixUrl.TabIndex = 6;
-            labelLcsFixUrl.Text = "LCS Issue Search Url";
-            // 
-            // labelLcsDiagUrl
-            // 
-            labelLcsDiagUrl.AutoSize = true;
-            labelLcsDiagUrl.Location = new System.Drawing.Point(9, 132);
-            labelLcsDiagUrl.Name = "labelLcsDiagUrl";
-            labelLcsDiagUrl.Size = new System.Drawing.Size(130, 20);
-            labelLcsDiagUrl.TabIndex = 7;
-            labelLcsDiagUrl.Text = "LCS Diagnostic Url";
+            rdpFullScreenEnabled.Location = new System.Drawing.Point(7, 75);
+            rdpFullScreenEnabled.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            rdpFullScreenEnabled.Name = "rdpFullScreenEnabled";
+            rdpFullScreenEnabled.Size = new System.Drawing.Size(229, 23);
+            rdpFullScreenEnabled.TabIndex = 2;
+            rdpFullScreenEnabled.Text = "Force full screen RDP connection";
             // 
             // Parameters
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(519, 770);
+            ClientSize = new System.Drawing.Size(454, 601);
             Controls.Add(groupBoxLCSUrls);
             Controls.Add(groupBoxCredentials);
             Controls.Add(groupBoxUIConfig);
@@ -326,6 +360,7 @@
             Controls.Add(groupCHE);
             Controls.Add(closeButton);
             Icon = Properties.Resources.favicon_blue;
+            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Parameters";
@@ -380,5 +415,6 @@
         private System.Windows.Forms.Label labelLcsDiagUrl;
         private System.Windows.Forms.Label labelLcsFixUrl;
         private System.Windows.Forms.Label labelLcsUpdateUrl;
+        private System.Windows.Forms.CheckBox rdpFullScreenEnabled;
     }
 }
